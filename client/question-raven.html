@@ -18,6 +18,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          {{> right_nav }}
         </div>
       </div>
     </div>
@@ -28,6 +29,24 @@
     {{> dashboard}}
   </div>
 </body>
+
+<template name="right_nav">
+  {{#if show }}
+  <ul class="nav pull-right">
+    <li><a href="#">Home</a></li>
+    <li>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle btn-inverse" data-toggle="dropdown" href="#">Andrew <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Credits</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a id="logout" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  {{/if}}
+</template>
 
 <template name="dashboard">
   {{#if show }}
