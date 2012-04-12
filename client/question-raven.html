@@ -3,6 +3,15 @@
 </head>
 
 <body>
+  {{> navbar }}
+  <div class="container">
+    {{> hello}}
+    {{> dashboard}}
+  </div>
+</body>
+
+<template name="navbar">
+  {{#if show }}
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -14,37 +23,29 @@
         <a class="brand" href="#">Question Raven</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <form class="navbar-search pull-left" method="get" action="/search">
+              <input type="text" class="search-query" style="width: 400px;" name="q" placeholder="Search all your boards and all of Question Raven">
+            </form>
           </ul>
-          {{> right_nav }}
+          <ul class="nav pull-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Inbox</a></li>
+            <li>
+              <div class="btn-group">
+                <a class="btn dropdown-toggle btn-inverse" data-toggle="dropdown" href="#">Andrew <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Credits</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a id="logout" href="#">Logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="container">
-    {{> hello}}
-    {{> dashboard}}
-  </div>
-</body>
-
-<template name="right_nav">
-  {{#if show }}
-  <ul class="nav pull-right">
-    <li><a href="#">Home</a></li>
-    <li>
-      <div class="btn-group">
-        <a class="btn dropdown-toggle btn-inverse" data-toggle="dropdown" href="#">Andrew <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Credits</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a id="logout" href="#">Logout</a></li>
-        </ul>
-      </div>
-    </li>
-  </ul>
   {{/if}}
 </template>
 

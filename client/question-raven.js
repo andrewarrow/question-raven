@@ -6,7 +6,7 @@ Template.dashboard.show = function () {
   return Session.get('user_id') != null;
 };
 
-Template.right_nav.show = function () {
+Template.navbar.show = function () {
   return Session.get('user_id') != null;
 };
 
@@ -16,8 +16,9 @@ Template.hello.events = {
   }
 };
 
-Template.right_nav.events = {
-  'click #logout' : function () {
+Template.navbar.events = {
+  'click #logout' : function (e) {
+    e.preventDefault();
     Session.set('user_id', null);
   }
 };
