@@ -3,10 +3,6 @@
 </head>
 
 <body>
-  {{> hello}}
-</body>
-
-<template name="hello">
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -15,7 +11,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Project name</a>
+        <a class="brand" href="#">Question Raven</a>
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
@@ -28,9 +24,52 @@
   </div>
 
   <div class="container">
-
-    <h1>Bootstrap starter template</h1>
-    <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-
+    {{> hello}}
+    {{> dashboard}}
   </div>
+</body>
+
+<template name="dashboard">
+  {{#if show }}
+  <div class="hero-unit">
+    <h1>Question Raven</h1>
+  </div>
+  {{/if}}
+</template>
+
+<template name="hello">
+  {{#if show }}
+  <div class="hero-unit">
+    <h1>Question Raven</h1>
+    <p>Question Raven tries to connects you to everything you want to know about.</p>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <h3>Returning Users</h3>
+        <form class="form-horizontal" style="margin: 15px 0 0 0; width: 380px;">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="email">Email Address</label>
+              <div class="controls">
+                <input type="text" class="input-large" id="email">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="password">Password</label>
+              <div class="controls">
+                <input type="password" class="input-large" id="password">
+              </div>
+            </div>
+          </fieldset>
+          <div style="float: right;">
+            <button id="login" type="submit" class="btn">Login</button>
+          </div>
+        </form>
+    </div>
+    <div class="span6">
+      <h3>Sign Up For Question Raven</h3>
+    </div>
+  </div>
+  {{/if}}
 </template>
