@@ -1,3 +1,6 @@
+
+Users = new Meteor.Collection("users");
+
 Template.hello.show = function () {
   return Session.get('user_id') == null;
 };
